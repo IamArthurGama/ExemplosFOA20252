@@ -16,57 +16,23 @@ class Program
 {
     static void Main()
     {
-        Console.Write("Digite seu nome: ");
-        string nome = Console.ReadLine();
+        decimal irpfDevido, salario;
+        Console.Write("Informe o salário: ");
+        salario = decimal.Parse(Console.ReadLine());
 
-        Console.Write("Digite sua idade: ");
-        byte idade = Convert.ToByte(Console.ReadLine());
-
-        Console.Write("Digite seu salário bruto (R$): ");
-        if (!decimal.TryParse(Console.ReadLine(), out decimal salario))
-        {
-            Console.WriteLine("Valor de salário inválido.");
-            return;
-        }
-
-        decimal ir = CalcularIRRF(salario);
-
-        Console.WriteLine($"Olá {nome}. A idade informada foi {idade}.");
-        Console.WriteLine($"O desconto de IRRF sobre o salário de R$ {salario:F2} é R$ {ir:F2}.");
-    }
-
-    static decimal CalcularIRRF(decimal salario)
-    {
-        decimal aliquota = 0m;
-        decimal deducao = 0m;
-
-        if (salario <= 2428.80m)
-        {
-            aliquota = 0m;
-            deducao = 0m;
-        }
+        if (salario <= 2428.8m)
+            irpfDevido = 0;
         else if (salario <= 2826.65m)
-        {
-            aliquota = 0.075m;
-            deducao = 182.16m;
-        }
+            irpfDevido = salario * 0.075m - 182.16m;
         else if (salario <= 3751.05m)
-        {
-            aliquota = 0.15m;
-            deducao = 394.16m;
-        }
+            irpfDevido = salario * 0.15m - 394.16m;
         else if (salario <= 4664.68m)
-        {
-            aliquota = 0.225m;
-            deducao = 675.49m;
-        }
+            irpfDevido = salario * 0.225m - 675.49m;
         else
-        {
-            aliquota = 0.275m;
-            deducao = 908.73m;
-        }
+            irpfDevido = salario * 0.275m - 908.73m;
 
-        decimal imposto = (salario * aliquota) - deducao;
-        return imposto < 0 ? 0 : imposto;
+        Console.WriteLine($"Para o salario {salario} o IRPF a ser pago é {irpfDevido}");
+
+
     }
 }
