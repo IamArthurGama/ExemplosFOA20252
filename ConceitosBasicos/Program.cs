@@ -10,7 +10,7 @@
 
 //altere o programa para que solicite ao usuário informar o seu salario e ao final informe o desconto
 //de IRPF de acordo com o salario informado. Utilize a tabela oficial de descontos do IRPF do Basil.
-
+/*
 
 class Program
 {
@@ -52,3 +52,16 @@ class Program
 
     }
 }
+*/
+
+
+using ConceitosBasicos.uteis;
+
+SomaDoisNumeros somaDoisNumeros;
+
+somaDoisNumeros = new SomaDoisNumeros();
+
+int result;
+
+result = somaDoisNumeros.Somar(20, 30);
+Console.WriteLine(result);
