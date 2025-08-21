@@ -65,3 +65,9 @@ int result;
 
 result = somaDoisNumeros.Somar(20, 30);
 Console.WriteLine(result);
+
+
+double result2;
+
+result2 = MetrosMilimetros.Converter(5);
+Console.WriteLine(result2);
