@@ -52,10 +52,9 @@ class Program
 
     }
 }
-*/
 
 
-using ConceitosBasicos.uteis;
+
 
 SomaDoisNumeros somaDoisNumeros;
 
@@ -71,3 +70,88 @@ double result2;
 
 result2 = MetrosMilimetros.Converter(5);
 Console.WriteLine(result2);
+*/
+
+
+using ConceitosBasicos.uteis;
+
+/*
+CalculaAumento calculaAumento = new CalculaAumento();
+
+string novoSalario;
+decimal salario, percent;
+Console.Write("Digite seu salário: ");
+salario = decimal.Parse(Console.ReadLine());
+Console.Write("Digite o percentual do aumento: ");
+percent = decimal.Parse(Console.ReadLine());
+novoSalario= calculaAumento.Calcular(salario, percent);
+Console.WriteLine(novoSalario);
+*/
+
+bool continuar = true;
+
+while (continuar)
+{
+    Console.Write("Escolha qual programa irá usar:\n" +
+    "Somar Dois Numeros -> 1\n" +
+    "Metros para Milimetros -> 2\n" +
+    "Calcular aumento -> 3\n" +
+    "Sair -> 0\n" +
+    "Sua escolha: ");
+    int escolha = int.Parse(Console.ReadLine());
+
+    switch (escolha)
+    {
+
+        case 1:
+            SomaDoisNumeros somaDoisNumeros;
+            somaDoisNumeros = new SomaDoisNumeros();
+            int resultSoma, n1, n2;
+
+            Console.Write("Digite o primeiro número a ser somado: ");
+            n1 = int.Parse(Console.ReadLine());
+            Console.Write("Digite o segundo número a ser somado: ");
+            n2 = int.Parse(Console.ReadLine());
+
+            resultSoma = somaDoisNumeros.Somar(n1, n2);
+            Console.WriteLine($"Resultado de {n1} + {n2} = {resultSoma}");
+
+            break;
+        case 2:
+
+            double metro, milimetro;
+            Console.Write("Digite o metro: ");
+            metro = double.Parse(Console.ReadLine());
+
+            milimetro = MetrosMilimetros.Converter(metro);
+            Console.WriteLine($"{metro}m em milimetro é: {milimetro}mm");
+            break;
+        case 3:
+            CalculaAumento calculaAumento = new CalculaAumento();
+
+            string novoSalario;
+            decimal salario, percent;
+            Console.Write("Digite seu salário: ");
+            salario = decimal.Parse(Console.ReadLine());
+            Console.Write("Digite o percentual do aumento: ");
+            percent = decimal.Parse(Console.ReadLine());
+            novoSalario = calculaAumento.Calcular(salario, percent);
+            Console.WriteLine(novoSalario);
+
+            break;
+        case 0:
+            continuar = false;
+            Console.WriteLine("Saindo do programa...");
+            break;
+        default:
+            Console.WriteLine("Opção inválida, escolha uma opção disponivel!");
+            break;
+
+        
+    };
+
+    Console.WriteLine(" ");
+}
+
+
+
